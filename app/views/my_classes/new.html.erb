@@ -1,0 +1,12 @@
+<h1>Create a new class</h1>
+
+<%= form_with model: [@user, @user.my_classes.build], local: true do |f| %>
+    <%= f.text_field :class_name %>
+    <%= f.submit "Save" %>
+<% end %>
+
+<% flash.each do |type, msg| %>
+    <div>
+        <%= msg %>
+    </div>
+<% end %>

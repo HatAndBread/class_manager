@@ -10,7 +10,7 @@ helper_method :logged_in?
         !current_user.nil?
     end
     def authorized
-        redirect_to '/welcome' unless logged_in?
+        redirect_to '/home' unless logged_in?
     end
 
 end

@@ -1,8 +1,27 @@
+
 <h1>Sign Up</h1>
-<%= form_for @user do |f|%>
+<%= form_with( model: @user, id: "signup-form", local: false) do |f|%>
   <%= f.label :username%><br>
-  <%= f.text_field :username%><br>
+  <%= f.text_field :username, :required => true%><br>
   <%= f.label :password%><br>
-  <%= f.password_field :password%><br>
+  <%= f.password_field :password, :required => true%><br>
   <%= f.submit %>
 <%end%>
+
+
+<% if @user.errors.messages[:username][0]
+    @user.errors.messages[:username].each do |message|%>
+    <p><%= message %></p>
+    <% end %>
+<% end %>
+
+
+<% if @user.errors.messages[:password][0]
+    @user.errors.messages[:password].each do |message|%>
+    <p><%= message %></p>
+    <% end %>
+<% end %>
+
+<%= javascript_pack_tag 'users/new' %>
+
+

@@ -1,0 +1,17 @@
+<h1>Add a new student!</h1>
+ 
+
+<%= form_with model: [@my_class, @my_class.students.build], local: true do |f| %>
+    <%= f.text_field :first_name %>
+    <br>
+    <%= f.text_field :last_name %>
+    <br>
+    <%= f.date_field :birthday %>
+    <br>
+    <%= f.submit "Save student"%>
+<% end %>
+
+<% @my_class.students.each do |student|%>
+<p><%= student[:first_name]%> <%= student[:last_name] %></p>
+<% end %>
+
