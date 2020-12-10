@@ -1,4 +1,12 @@
 class MyClassesController < ApplicationController
+    def index
+        user = User.find(session[:user_id])
+        @my_classes = user.my_classes.all
+    end
+    def edit
+        my_class = MyClass.find(params[:id])
+        @students = my_class.students.all
+    end
     def new
         @user = User.find(session[:user_id])
     end
@@ -11,6 +19,9 @@ class MyClassesController < ApplicationController
             flash[:alert] = 'That class name is already taken.'
             render "new"
         end
+    end
+    def update
+    
     end
 
     private

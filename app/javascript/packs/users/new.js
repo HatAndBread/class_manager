@@ -11,4 +11,3 @@ signupForm.addEventListener('ajax:success', (e) => {
     alertify.alert(message);
   }
 });
-// alertify.alert('Did you know that you are stupid?');

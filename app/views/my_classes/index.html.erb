@@ -1,0 +1,6 @@
+<h1>Choose a class to edit<h1>
+<ul>
+<% @my_classes.each do |my_class| %>
+        <li>🌟 <%= link_to  my_class.class_name, edit_my_class_path(my_class) %></li>
+<% end %>
+</ul>

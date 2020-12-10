@@ -1,4 +1,7 @@
 class StudentsController < ApplicationController
+    def index
+    
+    end
     def create
         @my_class = MyClass.find(params[:my_class_id])
         @student = @my_class.students.create(student_params)

@@ -1,0 +1,21 @@
+<h1>Edit a class!</h1>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Birthday</th>
+        </tr>
+    </thead>
+    <tbody>
+    <%@students.each do |student|%>
+        <tr>
+        <td><%= student.first_name %> <%= student.last_name %> </td>
+        <td class="td-birthday"><%= student.birthday %></td>
+        <tr>
+    <% end %>
+    </tbody>
+</table>
+
+
