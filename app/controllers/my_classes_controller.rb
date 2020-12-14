@@ -1,14 +1,29 @@
 class MyClassesController < ApplicationController
+    skip_before_action :verify_authenticity_token
+
     def index
         user = User.find(session[:user_id])
         @my_classes = user.my_classes.all
     end
     def edit
         my_class = MyClass.find(params[:id])
+        @class_name = my_class.class_name
         @students = my_class.students.all
     end
     def new
         @user = User.find(session[:user_id])
+    end
+    def update
+        my_class = MyClass.find(params[:id].to_i)
+        params[:data].each do |key, value|
+            student = Student.find(value[:id])
+            p student
+            if student.update({first_name: value[:first_name], last_name: value[:last_name], birthday: value[:birthday]})
+                puts 'SUCCESSS!'
+            else
+                puts 'FAILURE'
+            end
+        end
     end
     def create
         @user = User.find(session[:user_id])
@@ -19,9 +34,6 @@ class MyClassesController < ApplicationController
             flash[:alert] = 'That class name is already taken.'
             render "new"
         end
-    end
-    def update
-    
     end
 
     private

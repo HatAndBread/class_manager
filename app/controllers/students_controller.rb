@@ -15,6 +15,11 @@ class StudentsController < ApplicationController
         @my_class = MyClass.find(params[:my_class_id])
     end
 
+    def update
+        p params
+    end
+    
+
     private
 
     def student_params

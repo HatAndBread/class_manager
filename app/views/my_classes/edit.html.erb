@@ -1,21 +1,30 @@
-<h1>Edit a class!</h1>
+<h1>Editing <%=@class_name %>!</h1>
 
-
+<form>
 <table>
     <thead>
         <tr>
-            <th>Name</th>
+            <th>First name</th>
+            <th>Last name</th>
             <th>Birthday</th>
         </tr>
     </thead>
     <tbody>
     <%@students.each do |student|%>
-        <tr>
-        <td><%= student.first_name %> <%= student.last_name %> </td>
-        <td class="td-birthday"><%= student.birthday %></td>
+        <tr id="<%=student.id%>">
+        <td class="td-first_name"><input type="text" name="first_name" id="<%=student.id%>" value="<%= student.first_name %>"/></td>
+        <td class="td-last_name"><input type="text" name="last_name" id="<%=student.id%>" value="<%= student.last_name %> "/></td>
+        <td class="td-birthday"><input type="date" name="birthday" id="<%=student.id%>" value="<%=student.birthday%>"/></td>
+        <td class="trash"><%= fa_icon "trash" %></td>
         <tr>
     <% end %>
     </tbody>
 </table>
+<button type="submit" id="save-butt">Save</button>
+
+</form>
+
+
+<%= javascript_pack_tag 'my_classes/edit'%>
 
 
