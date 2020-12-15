@@ -1,5 +1,6 @@
 import * as alertify from 'alertifyjs';
-console.log('Hi!');
+
+const token = document.getElementsByName('csrf-token')[0].content;
 
 const birthdays = document.querySelectorAll('.td-birthday');
 birthdays.forEach((birthday) => {
@@ -65,8 +66,19 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const res = await fetch('/my_classes/24', {
     method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRF-Token': token
+    },
     body: JSON.stringify({ data: data })
   });
-  console.log(res);
+  if (res.ok) {
+    alertify.notify('Changes successfully saved', 'success', 3, function () {
+      console.log('dismissed');
+    });
+  } else {
+    alertify.notify('There was an error saving to the database. Please try again', 'failure', 3, function () {
+      console.log('dismissed');
+    });
+  }
 });
