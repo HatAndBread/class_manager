@@ -18,7 +18,13 @@ class StudentsController < ApplicationController
     def update
         p params
     end
-    
+    def destroy
+        puts "THIS IS THE DESTROY METHOD HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        student = Student.find(params[:id])
+        p student
+        student.destroy!
+        render json: student
+    end
 
     private
 

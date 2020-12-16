@@ -6,6 +6,7 @@ class MyClassesController < ApplicationController
     end
     def edit
         my_class = MyClass.find(params[:id])
+        @class_id = my_class.id
         @class_name = my_class.class_name
         @students = my_class.students.all
     end
@@ -15,14 +16,17 @@ class MyClassesController < ApplicationController
     def update
         my_class = MyClass.find(params[:id].to_i)
         params[:data].each do |key, value|
-            student = Student.find(value[:id])
-            p student
-            if student.update({first_name: value[:first_name], last_name: value[:last_name], birthday: value[:birthday]})
-                puts 'SUCCESSS!'
+            if value[:id]
+                student = Student.find(value[:id])
+                student.update({first_name: value[:first_name], last_name: value[:last_name], birthday: value[:birthday]})
             else
-                puts 'FAILURE'
+                student = my_class.students.create({first_name: value[:first_name], last_name: value[:last_name], birthday: value[:birthday]})
+                if student.valid?
+                    puts "successfully added new student"
+                end
             end
         end
+        render json: my_class.to_json(include: [:students])
     end
     def create
         @user = User.find(session[:user_id])
