@@ -39,12 +39,17 @@ a {
 .fa {
   cursor: pointer;
 }
-
 nav {
+  background-color: #ff7477;
+  display: flex;
+  width: 100vw;
+}
+.nav-menu {
   display: flex;
   justify-content: space-around;
   background-color: #ff7477;
   align-items: center;
+  width: 100vw;
 }
 
 nav a {
@@ -69,5 +74,55 @@ nav a:hover {
 
 .link-btn:hover {
   background-color: #e69597;
-  color: black;
+  color: #9cf6f6;
+}
+
+.btn-red {
+  background-color: #ff7477;
+  color: snow;
+  padding: 10px 20px 10px 20px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.btn-red:hover {
+  background-color: #e69597;
+  color: #9cf6f6;
+}
+
+.burger {
+  cursor: pointer;
+  display: none;
+  padding: 16px;
+}
+
+.slice {
+  width: 24px;
+  height: 2px;
+  background-color: snow;
+  margin: 6px;
+}
+
+@media only screen and (max-width: 800px) {
+  .burger {
+    display: inline-block;
+  }
+  .nav-menu {
+    position: fixed;
+    top: -100vh;
+    height: 70vh;
+    flex-direction: column;
+    transition: 0.3s;
+  }
+  .nav-menu a {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+}
+
+input[type='text'] {
+  border-radius: 6px;
+}
+
+input[type='date'] {
+  border-radius: 6px;
 }
