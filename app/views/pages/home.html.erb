@@ -1,1 +1,9 @@
-<h1>This is the homepage!</h1>
+<div class="hero">
+  <div class="main-title">Teacher's Pets</div>
+  <h1>Everything you need to manage your classroom in one place</h1>
+   <% if logged_in? %>
+    <a href ="/my_classes" class="link-btn">Edit classes</a>
+   <% else %>
+   <a href ="/users/new" class="link-btn">Sign up</a>
+   <% end %>
+</div>

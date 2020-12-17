@@ -4,6 +4,8 @@
     <title>ClassManager</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Nunito&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -11,11 +13,13 @@
 
   <body>
   <nav>
-  <a href="/"><%= image_tag 'icon.png' %></a>
+  <a href="/"><%= image_tag 'icon.png', id: "icon"%></a>
+  <%= link_to  "Random student generator", '#' %>
+  <%= link_to  "Random group maker", '#' %>
   <% if logged_in? %>
-  <%= link_to  "Logout", logout_path %>
   <%= link_to "New class", new_user_my_class_path(session[:user_id]) %>
   <%= link_to "Edit classes", my_classes_path %>
+  <%= link_to  "Logout", logout_path %>
   <% else %>
   <%= link_to  "Login", login_path %>
   <%= link_to  "Sign up", new_user_path %>

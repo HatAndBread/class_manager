@@ -1,3 +1,28 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100vw;
+  height: fit-content;
+  color: snow;
+  padding-bottom: 32px;
+  background-image: radial-gradient(circle, rgba(40, 40, 40, 0.5) 0%, rgba(148, 187, 233, 0.6) 100%),
+    url('title_background.png');
+  background-position: center;
+  background-size: contain;
+}
+
+.main-title {
+  font-size: 11vw;
+  font-family: 'Happy Monkey', monospace;
+}
+
+.hero h1 {
+  width: 70vw;
+  text-align: center;
+}
