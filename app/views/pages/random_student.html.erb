@@ -1,0 +1,15 @@
+<h1>Random student generator</h1>
+
+<select>
+<option value="" disabled selected hidden>Select class...</option>
+<% @my_classes.each do |my_class| %>
+<option value="<%=my_class.id%>" ><%=my_class.class_name%></option>
+<%end%>
+</select>
+
+<button class="btn-red">Random Student</button>
+
+<div id="student-name-display"><span id="student-name-span"></span><span class="b-day-span"></span></div>
+
+
+<%=javascript_pack_tag "pages/random_student"%>

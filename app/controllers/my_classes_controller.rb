@@ -28,6 +28,11 @@ class MyClassesController < ApplicationController
         end
         render json: my_class.to_json(include: [:students])
     end
+    def my_students
+        puts params
+        my_class = MyClass.find(params[:id].to_i)
+        render json: my_class.to_json(include: [:students])
+    end
     def create
         @user = User.find(session[:user_id])
         my_class = @user.my_classes.create(my_class_params)

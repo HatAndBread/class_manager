@@ -3,5 +3,8 @@ class PagesController < ApplicationController
     def home
         @user = current_user
     end
-
+    def random_student
+        user = User.find(session[:user_id])
+        @my_classes = user.my_classes.all
+    end
 end
