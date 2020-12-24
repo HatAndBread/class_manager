@@ -1,7 +1,9 @@
 import birthdayDetector from '../birthday_detector';
 import randumb from 'no-duplicates';
+import * as alertify from 'alertifyjs';
 
 let randomStudent = null;
+let currentStudent = null;
 const studentNameSpan = document.querySelector('#student-name-span');
 const bDaySpan = document.querySelector('.b-day-span');
 const butt = document.querySelector('button');
@@ -32,10 +34,17 @@ select.addEventListener('change', (e) => {
 
 butt.addEventListener('click', () => {
   if (typeof randomStudent === 'function') {
-    const student = randomStudent();
-    student.birthdaySoon ? (bDaySpan.innerText = ' 🥳🎂') : (bDaySpan.innerText = '');
-    studentNameSpan.innerText = `${student.first_name} ${student.last_name}`;
+    currentStudent = randomStudent();
+    currentStudent.birthdaySoon ? (bDaySpan.innerText = ' 🥳🎂') : (bDaySpan.innerText = '');
+    studentNameSpan.innerText = `${currentStudent.first_name} ${currentStudent.last_name}`;
   } else {
     alert('Please select a class');
   }
+});
+
+bDaySpan.addEventListener('click', () => {
+  console.log(currentStudent.birthday);
+  alertify.notify(`🎂${currentStudent.birthday}`, 'success', 3, function () {
+    console.log('dismissed');
+  });
 });

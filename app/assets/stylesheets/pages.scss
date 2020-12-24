@@ -31,6 +31,10 @@
   font-size: 10vw;
 }
 
+.b-day-span {
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 800px) {
   .hero h1 {
     font-size: medium;

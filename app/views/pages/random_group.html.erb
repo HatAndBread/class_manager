@@ -1,0 +1,10 @@
+<h1>Random Group Maker</h1>
+
+<%= render 'class_select' %>
+<select id="student-number-select">
+<option value="" disabled selected hidden>Minimum number of students per group</option></select>
+<button class="btn-red">Make groups</button>
+
+<div id="group-display"></div>
+
+<%= javascript_pack_tag 'pages/random_group'%>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   get 'home', to: 'pages#home'
   get 'random_student', to: 'pages#random_student'
+  get 'random_group', to: 'pages#random_group'
   post 'my_students', to: 'my_classes#my_students'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

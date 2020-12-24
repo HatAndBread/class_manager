@@ -1,0 +1,6 @@
+<select id="class-select">
+<option value="" disabled selected hidden>Select class...</option>
+<% @my_classes.each do |my_class| %>
+<option value="<%=my_class.id%>" ><%=my_class.class_name%></option>
+<%end%>
+</select>

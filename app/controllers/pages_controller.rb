@@ -7,4 +7,8 @@ class PagesController < ApplicationController
         user = User.find(session[:user_id])
         @my_classes = user.my_classes.all
     end
+    def random_group
+        user = User.find(session[:user_id])
+        @my_classes = user.my_classes.all
+    end
 end
