@@ -6,9 +6,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   width: 100vw;
-  height: fit-content;
+  height: 100vh;
   color: snow;
   padding-bottom: 32px;
   background-image: radial-gradient(circle, rgba(40, 40, 40, 0.5) 0%, rgba(148, 187, 233, 0.6) 100%),

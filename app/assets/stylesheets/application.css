@@ -123,6 +123,10 @@ input[type='text'] {
   border-radius: 6px;
 }
 
+input[type='password'] {
+  border-radius: 6px;
+}
+
 input[type='date'] {
   border-radius: 6px;
 }
