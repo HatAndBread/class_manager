@@ -126,3 +126,7 @@ input[type='text'] {
 input[type='date'] {
   border-radius: 6px;
 }
+
+select {
+  border-radius: 6px;
+}

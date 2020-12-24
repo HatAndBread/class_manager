@@ -1,6 +1,7 @@
 import birthdayDetector from '../birthday_detector';
 import randumb from 'no-duplicates';
 import * as alertify from 'alertifyjs';
+import teamNames from './team_names';
 
 const token = document.getElementsByName('csrf-token')[0].content;
 
@@ -74,6 +75,7 @@ const createGroupDiv = (group) => {
     ul.appendChild(li);
   });
   div.appendChild(ul);
+  div.insertAdjacentHTML('afterbegin', `<p>${teamNames()}</p>`);
   return div;
 };
 

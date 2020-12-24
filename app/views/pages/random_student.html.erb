@@ -1,10 +1,12 @@
+<div class="pages-top">
 <h1>Random student generator</h1>
-
-
+<div class="select-controls">
 <%= render 'class_select'%>
 
+<button class="btn-red">Random Student</button>
+</div>
 
 <div id="student-name-display"><span id="student-name-span"></span><span class="b-day-span"></span></div>
+</div>
 
-<button class="btn-red">Random Student</button>
 <%=javascript_pack_tag "pages/random_student"%>
